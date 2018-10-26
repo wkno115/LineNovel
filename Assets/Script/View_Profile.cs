@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class View_Profile : MonoBehaviour {
-
+    public GameObject detailPanel;
 	// Use this for initialization
 	void Start () {
 		
@@ -16,6 +17,9 @@ public class View_Profile : MonoBehaviour {
 
     public void View_profile()
     {
-        Debug.Log("view");
+        detailPanel.transform.DOLocalMove(
+                new Vector3(detailPanel.transform.localPosition.x, 0, detailPanel.transform.localPosition.z),
+                0.7f
+            );
     }
 }

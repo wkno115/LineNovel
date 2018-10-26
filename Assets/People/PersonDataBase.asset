@@ -13,3 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   personList:
   - {fileID: 11400000, guid: 7dbcc45d8c9c24247b7afa018872896c, type: 2}
+  - {fileID: 11400000, guid: 16cbcd0b9d69c144fa9269f2a6708c5c, type: 2}
+  - {fileID: 11400000, guid: dda446d5eb9bba64ab48d18f57602998, type: 2}
+  - {fileID: 11400000, guid: 8b5b417f4e830b344b0e7bee2d600575, type: 2}
+  - {fileID: 11400000, guid: 4eb8217af71f22d4095e281c3ec7784b, type: 2}
+  - {fileID: 11400000, guid: 2d47bda8d1fce0349b20c6e696978c05, type: 2}

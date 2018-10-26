@@ -45,7 +45,7 @@ public class PullItems : MonoBehaviour {
         for (int i = 0; i < gameObjects.Count; i++)
         {
             gameObjects[i].transform.DOLocalMove(
-                new Vector3(gameObjects[i].transform.localPosition.x, gameObjects[0].transform.root.localPosition.y - (126 * (i+1)), gameObjects[i].transform.localPosition.z),
+                new Vector3(gameObjects[i].transform.localPosition.x, gameObjects[0].transform.root.localPosition.y - (120 * (i+2)), gameObjects[i].transform.localPosition.z),
                 doneTime
                 );
             Debug.Log(gameObjects[i].transform.localPosition.y);
