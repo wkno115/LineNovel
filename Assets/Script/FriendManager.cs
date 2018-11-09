@@ -2,22 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FriendManager : MonoBehaviour {
+public class FriendManager : MonoBehaviour
+{
+    /// <summary>
+    /// 人々のデータベース
+    /// </summary>
     public PersonDataBase personDataBase;
-    public GameObject FriendItem;
+    /// <summary>
+    /// フレンドアイテムオブジェクト
+    /// </summary>
+    public GameObject friendItem;
+    /// <summary>
+    /// フレンドアイテムのリスト
+    /// </summary>
+    public List<GameObject> friendItemList;
+    /// <summary>
+    /// フレンドアイテムを扱うオブジェクト
+    /// </summary>
+    public GameObject friendItemHandler;
+    /// <summary>
+    /// フレンド詳細画面
+    /// </summary>
+    public GameObject friendDetailPanel;
+
     private List<Person> people;
     // Use this for initialization
-    void Start() {
-        people=personDataBase.GetPersonLists();
-        foreach (Person p in people)
-        {
-            GameObject.Instantiate(FriendItem);
-            FriendItem.GetComponent<FriendItem>().person = p;
-        }
+    void Start()
+    {
+        friendItemList = new List<GameObject>();
+        people = personDataBase.GetPersonLists();
+        CreateFriendItem();
     }
 
-    // Update is called once per frame
-    void Update() {
-
+    /// <summary>
+    /// フレンドアイテムを人数分生成
+    /// </summary>
+    public void CreateFriendItem()
+    {
+        int count = 0;
+        foreach (Person p in people)
+        {
+            GameObject go = Instantiate(friendItem) as GameObject;
+            go.transform.parent = friendItemHandler.transform;
+            go.GetComponent<FriendItem>().person = p;
+            go.transform.localPosition -= new Vector3(0, count * go.GetComponent<RectTransform>().sizeDelta.y+2, 0);
+            count++;
+        }
     }
 }
