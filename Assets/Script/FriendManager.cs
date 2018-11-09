@@ -23,7 +23,7 @@ public class FriendManager : MonoBehaviour
     /// <summary>
     /// フレンド詳細画面
     /// </summary>
-    public GameObject friendDetailPanel;
+    public FriendDetailPanel friendDetailPanel;
 
     private List<Person> people;
     // Use this for initialization
@@ -48,5 +48,14 @@ public class FriendManager : MonoBehaviour
             go.transform.localPosition -= new Vector3(0, count * go.GetComponent<RectTransform>().sizeDelta.y+2, 0);
             count++;
         }
+    }
+
+    /// <summary>
+    /// フレンド詳細画面を表示
+    /// </summary>
+    IEnumerator ViewFriendDetailPanel(Person p)
+    {
+        friendDetailPanel.SetInformation(p);
+        yield return null;
     }
 }
