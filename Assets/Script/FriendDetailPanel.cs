@@ -27,6 +27,6 @@ public class FriendDetailPanel : MonoBehaviour
         _homeImage.sprite = p.Home_icon;
         _profileIcon.sprite = p.Profile_icon;
         _personName.text = p.PersonName;
-        _comment.text = p.Coment;
+        _comment.text = p.Comment;
     }
 }

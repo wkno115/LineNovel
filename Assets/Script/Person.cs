@@ -27,7 +27,7 @@ public class Person : ScriptableObject
     private string personName;
     //　一言コメント
     [SerializeField]
-    private string coment;
+    private string comment;
 
     public Sprite Profile_icon
     {
@@ -53,11 +53,11 @@ public class Person : ScriptableObject
         }
     }
 
-    public string Coment
+    public string Comment
     {
         get
         {
-            return coment;
+            return comment;
         }
     }
 

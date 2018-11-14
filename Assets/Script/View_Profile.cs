@@ -21,7 +21,7 @@ public class View_Profile : MonoBehaviour
 
     public void View_profile()
     {
-        _detailPanel.SetInformation(_friendItem.person);
+        _detailPanel.SetInformation(_friendItem._person);
         _detailView.transform.DOLocalMove(
                 new Vector3(0, -_detailView.GetComponent<RectTransform>().sizeDelta.y, 0),
                 0.7f

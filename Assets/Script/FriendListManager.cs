@@ -47,29 +47,30 @@ public class FriendListManager : MonoBehaviour
         _friendItemList = new List<GameObject>();
         _friendList = _personDataBase.GetPersonLists();
         _friendLabelText.text = _personDataBase.GetPersonLists().Count.ToString();
-        CreateFriendItem();
+        StartCoroutine(CreateFriendItem());
     }
 
     /// <summary>
     /// フレンドアイテムを人数分生成
     /// </summary>
-    public void CreateFriendItem()
+    public IEnumerator CreateFriendItem()
     {        
         int count = 0;
         foreach (Person p in _friendList)
         {
             if (count == 0)
             {
-                _friendItem.GetComponent<FriendItem>().person = p;
+                _friendItem.GetComponent<FriendItem>()._person = p;
             }
             else
             {
                 GameObject go = Instantiate(_friendItem,_friendItemHandler.transform) as GameObject;
-                go.GetComponent<FriendItem>().person = p;
-                go.transform.position -= new Vector3(0, count * go.GetComponent<RectTransform>().sizeDelta.y + 2, 0);
+                go.GetComponent<FriendItem>()._person = p;
+                go.transform.localPosition -= new Vector3(0, count * go.GetComponent<RectTransform>().sizeDelta.y + 2, 0);
             }
             count++;
         }
+        yield return null;
     }
 
     /// <summary>
