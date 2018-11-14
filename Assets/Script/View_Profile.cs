@@ -1,28 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using DG.Tweening;
 using UnityEngine;
-using DG.Tweening;
 
 public class View_Profile : MonoBehaviour
 {
-    public GameObject detailPanel;
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    /// <summary>
+    /// 詳細パネル
+    /// </summary>
+    [SerializeField]
+    FriendDetailPanel _detailPanel;
+    /// <summary>
+    /// 詳細ビュー
+    /// </summary>
+    [SerializeField]
+    GameObject _detailView;
+    /// <summary>
+    /// フレンドアイテム
+    /// </summary>
+    [SerializeField]
+    FriendItem _friendItem;
 
     public void View_profile()
     {
-        GameObject.Instantiate(detailPanel);
-        detailPanel.transform.DOLocalMove(
-                new Vector3(detailPanel.transform.position.x, detailPanel.transform.position.y, 0),
+        _detailPanel.SetInformation(_friendItem.person);
+        _detailView.transform.DOLocalMove(
+                new Vector3(0, -_detailView.GetComponent<RectTransform>().sizeDelta.y, 0),
                 0.7f
             );
     }
